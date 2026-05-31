@@ -10,68 +10,70 @@ menu_items = ["Burger", "Hot Dog", "Fries", "Fried Chicken Wings", "Buffalo Chic
 #task complete
 
 # Task 1.2: Display a welcome message and create an infinite while loop
-while menu_items:
-     print("Welcome to the Food Truck! Please place your order.")
-#task complete
+print("Welcome to the Food Truck!")
 
 
-# Task 2: Setup user input
 while True:
-     print('Type "menu" to display the menu, "done" to complete your order, and enter items one at a time.')
-     current_order = []
-     while True:
-          user_input = input("Please Enter an item (or 'menu'/'done'): ").strip()
-          if not user_input:
-               print("No input entered. Please enter a menu item, 'menu', or 'done'.")
-               continue
-          if user_input.lower() == "menu":
-               print("Menu:")
-               for m in menu_items:
-                    print("-", m)
-               continue
-          if user_input.lower() == "done":
-               if current_order:
-                    print("Your order:", ", ".join(current_order))
-                    empty_order_queue.append(current_order)
-               else:
-                    print("No items were added to your order.")
-               break
-          matched = None
-          for m in menu_items:
-               if m.lower() == user_input.lower():
-                    matched = m
-                    break
-          if not matched:
-               print(f"'{user_input}' is not on the menu. Type 'menu' to see available items.")
-               continue
-          while True:
-               quantity_input = input(f"How many {matched} would you like? ").strip()
-               if not quantity_input:
-                    print("Quantity cannot be empty. Please enter a positive whole number.")
-                    continue
-               if not quantity_input.isdigit():
-                    print("Invalid quantity. Please enter a whole number.")
-                    continue
-               quantity = int(quantity_input)
-               if quantity <= 0:
-                    print("Quantity must be at least 1.")
-                    continue
-               break
-          current_order.extend([matched] * quantity)
-          print(f"Added {quantity} x {matched} to your order.")
+     #2.1
+     print('Type "menu" to display the menu.\n'
+           "Type 'done' to complete your order.\n"
+           "Please enter items one at a time.\n"
+           )
+     userinput = input("Please enter the food items you want to order:")
 
-     more = input("Take another order? (y/n): ").strip().lower()
-     if more not in ("y", "yes"):
-          print("Closing orders. Goodbye!")
+     #2.2
+     if userinput == "done":
           break
-#task complete
 
-# Task 3: Process the order queue
-print("Order queue to be processed:")
-print(empty_order_queue)
-while empty_order_queue:
-     current_item = empty_order_queue.pop(0)
-     remaining = len(empty_order_queue)
-     print(f"Fulfilling: {current_item}... ({remaining} items remaining in queue)")
-print("All order entries were fulfilled successfully.") 
-#task complete
+     #2.3
+     elif userinput == "":
+          continue
+
+     #2.4
+     if userinput not in menu_items:
+     
+          print("Sorry, that item is not on the menu. Please try again.")
+          continue
+
+     #2.5
+     #else: 
+          #quantity_input = int()
+
+
+
+
+          #task 3 
+          #3.1
+          print(f"\nOriginal Order Queue:{order_queue}")
+          print("\n--- Processing Orders as follows..")
+
+          #3.2
+          while order_queue:
+               item = order_queue.pop(0)
+               print(f"Fullfillinf:{item}({len(order_queue)}items left in the queue)")
+
+
+ #3.3
+               print("All orders entries were fullfilled successfully")
+               
+
+                
+               
+
+
+
+
+
+
+
+
+          
+
+
+
+     
+
+
+
+
+
