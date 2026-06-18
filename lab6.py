@@ -49,7 +49,61 @@ class Vehicle:
         else:
             self.is_almost_empty = False
         
-    
+
+ 
+#Task 2a
+vehicles = []
+ 
+#Task 2b
+vehicle1 = Vehicle("Toyota", "Camry",    2020, max_fuel=13.2)
+vehicle2 = Vehicle("Honda",  "Civic",    2019, max_fuel=12.4)
+vehicle3 = Vehicle("Ford",   "Mustang",  2022, max_fuel=16.0)
+vehicle4 = Vehicle("BMW",    "3 Series", 2021, max_fuel=15.6)
+ 
+# Vehicle list 
+vehicles.append(vehicle1)
+vehicles.append(vehicle2)
+vehicles.append(vehicle3)
+vehicles.append(vehicle4)
+ 
+#Task 2c
+print("=" * 55)
+print("Setting fuel levels for each vehicle:")
+print("=" * 55)
+ 
+vehicles[0].fuel_level(5.3)   # Vehicle 1 = 5.3 gallons
+vehicles[1].fuel_level(2.2)   # Vehicle 2 = 2.2 gallons
+vehicles[2].fuel_level(10.1)  # Vehicle 3 = 10.1 gallons
+vehicles[3].fuel_level(0.5)   # Vehicle 4 = 0.5 gallons
+ 
+#Task 2d
+
+print()
+print("Attempting to set Vehicle 2 fuel level to -4.4 (invalid - negative value):")
+vehicles[1].fuel_level(-4.4)
+ 
+#Task 2e
+print()
+print("Attempting to set Vehicle 4 fuel level to 100 (invalid - exceeds max capacity):")
+vehicles[3].fuel_level(100)
+ 
+#Task 2f
+print()
+print("=" * 55)
+print("Vehicle Summary:")
+print("=" * 55)
+ 
+for i, vehicle in enumerate(vehicles, start=1):
+    print(f"\nVehicle {i}: {vehicle.details()}")
+    print(f"  Current Fuel : {vehicle.current_fuel} gallons")
+    print(f"  Max Fuel     : {vehicle.max_fuel} gallons")
+    print(f"  Fuel Left    : {vehicle.fuel_left()}%")
+    print(f"  Almost Empty : {vehicle.is_almost_empty}")
+ 
+print()
+print("=" * 55)
+print("End of Lab 6 - Part 1")
+print("=" * 55)
  
 
     
